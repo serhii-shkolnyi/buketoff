@@ -1,7 +1,9 @@
 import express from 'express';
 
+import { apiConfig } from './config';
+
 const app = express();
 
-app.listen(5000, () => {
-    console.log('server started!!!');
+app.listen(apiConfig.PORT, () => {
+    console.log(`Server started on PORT: ${apiConfig.PORT}`);
 });
