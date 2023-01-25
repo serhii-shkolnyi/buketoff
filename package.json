@@ -7,7 +7,11 @@
     "start": "rimraf dist && tsc-watch --onSuccess 'npm run watch:server ' ",
     "watch:server": "nodemon './src/main.ts' --watch './src' ",
     "lint": "eslint --cache --ext .js,.ts src",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "migration:create": "npm run typeorm migration:create ./src/migration/$npm_config_name",
+    "migration:run": "npm run typeorm migration:run -- -d ./src/data-source.ts",
+    "migration:revert": "npm run typeorm migration:revert"
   },
   "author": "",
   "license": "ISC",
