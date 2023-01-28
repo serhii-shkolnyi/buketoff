@@ -14,6 +14,13 @@ export class CreateTableUsers1674655070294 implements MigrationInterface {
                         generationStrategy: 'increment',
                     },
                     {
+                        name: 'role',
+                        type: 'varchar',
+                        width: 255,
+                        isNullable: false,
+                        default: "'customer'",
+                    },
+                    {
                         name: 'email',
                         type: 'varchar',
                         width: 255,
@@ -35,6 +42,7 @@ export class CreateTableUsers1674655070294 implements MigrationInterface {
                     {
                         name: 'deletedAt',
                         type: 'timestamp',
+                        isNullable: true,
                     },
                 ],
             }),
