@@ -1,13 +1,19 @@
 import 'reflect-metadata';
 import express, { Request, Response } from 'express';
+// import cors from 'cors';
 
 import { apiConfig } from './config';
 import { AppDataSource } from './data-source';
 import { UserEntity } from './entity/user.entity';
+import { apiRouter } from './router/api.router';
 
 const app = express();
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// app.use(cors());
+
+app.use(apiRouter);
 
 app.post('/users', async (req:Request, res:Response) => {
     const createdUser = await AppDataSource.getRepository(UserEntity).save(req.body);
